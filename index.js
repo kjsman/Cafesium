@@ -10,11 +10,13 @@ if ( !(process.env.SCHOOL_CODE && process.env.PHASE) ) throw Error("Must need En
 
 // ROOT
 app.get('/', function(req, res) {
-    res.send("Cafesium, Online.");
+    res.send("Cafesium, Online.<br><br>Data : /data<br>LICENSE : /license");
 });
 
 // Data
 app.use('/data', data);
+
+app.use('/license', express.static('LICENSE'));
 
 // 404 Page
 app.all('*', function(req, res) {
